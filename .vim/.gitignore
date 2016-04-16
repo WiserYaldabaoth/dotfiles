@@ -1,0 +1,19 @@
+# Remove unnecessary dotfiles
+.VimballRecord
+.netrwhist
+
+
+# Ignore the sessions
+sessions/
+
+# Ignore spelling
+/spell/
+
+
+# Ignore plugins
+/plugged/
+
+
+# Ignore vim files
+*.swp
+*.swo
