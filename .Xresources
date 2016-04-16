@@ -1,0 +1,51 @@
+URxvt*buffered: true
+URxvt*termName: rxvt-256color
+
+!urxvt gruvbox colorscheme
+!refer to ~/.vim/plugged/gruvbox/colors/gruvbox.vim
+
+URxvt*background: #282828
+URxvt*foreground: #ebdbb2
+
+URxvt*colorUL: #076678
+
+!black
+!dark0_soft dark2
+URxvt*color0: #32302f
+URxvt*color8: #504945
+!red
+!neutral bright
+URxvt*color1: #cc241d
+URxvt*color9: #fb4934
+!green
+URxvt*color2: #98971a
+URxvt*color10: #b8bb26
+!yellow
+URxvt*color3: #d79921
+URxvt*color11: #fabd2f
+!blue
+URxvt*color4: #458588
+URxvt*color12: #83a598
+!magenta [purple]
+URxvt*color5: #bi6286
+URxvt*color13: #d3869b
+!cyan
+!madeup
+URxvt*color6: #00b2b2
+URxvt*color14: #00999
+!white
+!light0_soft light2
+URxvt*color7: #f2e5bc
+URxvt*color15: #d5c4a1
+
+
+URxvt*scrollBar: false
+/* URxvt*color12: rgb:5c/5c/ff */
+URxvt*saveLines: 5000
+
+
+! Select fonts
+URxvt*font: xft:inconsolata:size=11:antialias=true
+URxvt*boldFont: xft:inconsolata:bold:size=11:antialias=true
+URxvt*italicFont:  xft:insonsolata:italic:size=11:antialias=true
+URxvt*boldItalicFont: xft:inconsolata:bold:italic:autohint=true:pixelsize=11antialias=true
