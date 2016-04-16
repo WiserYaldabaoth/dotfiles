@@ -1,0 +1,30 @@
+--langdef=plaintex
+--langmap=plaintex:.tex
+--regex-plaintex=/^\\tableofcontents/TABLE OF CONTENTS/s,toc/
+--regex-plaintex=/^\\frontmatter/FRONTMATTER/s,frontmatter/
+--regex-plaintex=/^\\mainmatter/MAINMATTER/s,mainmatter/
+--regex-plaintex=/^\\backmatter/BACKMATTER/s,backmatter/
+--regex-plaintex=/^\\bibliography\{/BIBLIOGRAPHY/s,bibliography/
+--regex-plaintex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
+--regex-plaintex=/^\\part[[:space:]]*\*[[:space:]]*\{([^}]+)\}/PART \1/s,part/
+--regex-plaintex=/^\\chapter[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/CHAP \2/s,chapter/
+--regex-plaintex=/^\\chapter[[:space:]]*\*[[:space:]]*\{([^}]+)\}/CHAP \1/s,chapter/
+--regex-plaintex=/^\\section[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\. \2/s,section/
+--regex-plaintex=/^\\section[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\. \1/s,section/
+--regex-plaintex=/^\\subsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\. \2/s,subsection/
+--regex-plaintex=/^\\subsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\. \1/s,subsection/
+--regex-plaintex=/^\\subsubsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\.\. \2/s,subsubsection/
+--regex-plaintex=/^\\subsubsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\.\. \1/s,subsubsection/
+--regex-plaintex=/^\\includegraphics[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-plaintex=/^\\lstinputlisting[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+--regex-plaintex=/\\label[[:space:]]*\{([^}]+)\}/\1/l,label/
+--regex-plaintex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
+--regex-plaintex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
+
+--langdef=XSD
+--langmap=XSD:+.xsd
+--langmap=XSD:+.wsdl
+--regex-XSD=/element name="([a-zA-Z0-9_]+:){0,1}([a-zA-Z0 -9_]+)"/\2/d,definition/
+--regex-XSD=/Type [a-zA-Z0-9="]*[ ]{0,1}name="([a-z_]+:){0,1}([a-zA-Z0-9_]+)"/\2/d,definition/
+--exclude=.git
+--recurse=yes
