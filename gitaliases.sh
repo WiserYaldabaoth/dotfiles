@@ -1,3 +1,7 @@
+# gitaliases.sh
+# Installs custom git aliases.
+
+
 # git alias -- Make a new alias
 git config --global alias.alias "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || echo \"usage: git alias <new alias> <original command>\" >&2 && exit 1' -"
 
