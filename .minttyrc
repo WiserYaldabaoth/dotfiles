@@ -1,8 +1,13 @@
-BoldAsFont=no
+BoldAsFont=yes
 Term=xterm-256color
+OpaqueWhenFocused=yes
+Transparency=high
 CursorType=block
 Font=Consolas
 FontHeight=10
+BellType=0
+BellFlash=no
+BellTaskbar=no
 CursorColour=255,128,255
 Transparency=off
 OpaqueWhenFocused=no
