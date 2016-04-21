@@ -61,8 +61,8 @@ URxvt*color13: #d3869b
 
 !cyan
 !madeup
-URxvt*color6: #00b2b2
-URxvt*color14: #009999
+URxvt*color6: #689d6a
+URxvt*color14: #8ec07c
 
 !white
 !light0_soft light2
