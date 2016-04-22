@@ -9,7 +9,10 @@ git config --global alias.alias "!sh -c '[ $# = 2 ] && git config --global alias
 git config --global alias.fl log "--oneline --graph --all --decorate=full"
 
 # git fld -- Pretty git log sorted by date
-git config --global alias.fl log "--oneline --graph --all --decorate=full --date-order"
+git config --global alias.fld log "--oneline --graph --all --decorate=full --date-order"
+
+# git fll -- Pretty git log for showing only the current branch
+git config --global alias.fl log "--oneline --graph --decorate=full"
 
 # git renameTag -- Rename an existing tag
 git config --global alias.renameTag "!sh -c 'set -e;git tag $2 $1; git tag -d $1;git push origin :refs/tags/$1;git push --tags' -"
