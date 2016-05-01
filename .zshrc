@@ -114,5 +114,21 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+alias ls='ls -hF --color=tty'                 # classify files in colour
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+alias ll='ls -alrt'                           # long list
+alias la='ls -A'                              # all but . and ..
+alias l='ls -CF'                              #
+alias lsd='ls ./.* -alrt |grep "[^^]./\..*$"' # ls dotfiles
+
+# tmux with 256-color support
+alias tmux="tmux -2"
+
+# eclimd
+alias eclimd='~/.eclipse/org.eclipse.platform_4.5.2_155965261_linux_gtk_x86_64/eclimd'
+
+alias th="theme smt"
 
 #vim:fen:fdm=marker
