@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
  export ZSH="/home/${USER}/.oh-my-zsh"
 
+ export ZSH_THEME="smt"
+ export ZLE_PROMPT_INDENT=0
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -67,6 +70,12 @@ if [[ -f ~/antigen/antigen.zsh ]]; then #{{{
     UNAME=$(uname --all)
     if [[ "$UNAME" =~ "ARCH" ]] ; then
         antigen bundle archlinux
+    elif [[ "$UNAME" =~ "Cygwin" ]] ; then
+        ;
+        # Cygwin stuff here
+    else
+        ;
+        # Specifically NOT all of the above
     fi
 
     antigen bundle zsh-users/zsh-completions src
@@ -115,4 +124,5 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 #vim:fen:fdm=marker
