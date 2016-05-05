@@ -148,5 +148,9 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
-#vim:fen:fdm=marker
+# Build up custom path, if it exists
+if [[ -f ~/.zsh_path ]]
+    source ~/.zsh_path
+fi
+
+# vim:fen:fdm=marker
