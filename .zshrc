@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/werty/.oh-my-zsh
+ export ZSH="/home/${USER}/.oh-my-zsh"
+
+ export ZSH_THEME="smt"
+ export ZLE_PROMPT_INDENT=0
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -67,6 +70,12 @@ if [[ -f ~/antigen/antigen.zsh ]]; then #{{{
     UNAME=$(uname --all)
     if [[ "$UNAME" =~ "ARCH" ]] ; then
         antigen bundle archlinux
+    elif [[ "$UNAME" =~ "Cygwin" ]] ; then
+        ;
+        # Cygwin stuff here
+    else
+        ;
+        # Specifically NOT all of the above
     fi
 
     antigen bundle zsh-users/zsh-completions src
@@ -131,4 +140,5 @@ alias eclimd='~/.eclipse/org.eclipse.platform_4.5.2_155965261_linux_gtk_x86_64/e
 
 alias th="theme smt"
 
+export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 #vim:fen:fdm=marker
