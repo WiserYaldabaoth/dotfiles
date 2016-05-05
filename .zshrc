@@ -1,8 +1,32 @@
 # Path to your oh-my-zsh installation.
- export ZSH="/home/${USER}/.oh-my-zsh"
+export ZSH="/home/${USER}/.oh-my-zsh"
 
- export ZSH_THEME="smt"
- export ZLE_PROMPT_INDENT=0
+export ZSH_THEME="smt"
+export ZLE_PROMPT_INDENT=0
+
+export DISABLE_AUTO_TITLE=true
+
+# SETUP VI MODE {{{
+bindkey -v
+
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=10
+#}}}
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
