@@ -149,7 +149,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Build up custom path, if it exists
-if [[ -f ~/.zsh_path ]]
+if [[ -f ~/.zsh_path ]]; then
     source ~/.zsh_path
 fi
 
