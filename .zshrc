@@ -28,6 +28,10 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=10
 #}}}
 
+# Setopts {{{
+setopt CORRECT
+#}}}
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -148,6 +152,9 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+# Aliases {{{1
+
+# Simple Aliases {{{2
 alias ls='ls -hF --color=tty'                 # classify files in colour
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
@@ -163,10 +170,24 @@ alias tmux="tmux -2"
 alias eclimd='~/.eclipse/org.eclipse.platform_4.5.2_155965261_linux_gtk_x86_64/eclimd'
 
 alias th="theme smt"
+#}}}2
+
+# Suffix Aliases {{{2
+alias -s tex=vim # may change this to pdflatex later
+alias -s txt=vim
+alias -s c=vim
+alias -s java=vim
+alias -s zshrc=source
+# alias -s vim=vim # Disables autocd to .vim directory
+#}}}2
+
+#}}}1
 
 # Build up custom path, if it exists
 if [[ -f ~/.zsh_path ]]; then
     source ~/.zsh_path
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # vim:fen:fdm=marker
