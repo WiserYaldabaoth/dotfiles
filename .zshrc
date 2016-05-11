@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/${USER}/.oh-my-zsh"
 
-export ZSH_THEME="smt"
 export ZLE_PROMPT_INDENT=0
 
 export DISABLE_AUTO_TITLE=true
@@ -109,8 +108,6 @@ if [[ -f ~/antigen/antigen.zsh ]]; then #{{{
     antigen bundle zsh-users/zsh-completions src
     antigen bundle zsh-users/zsh-history-substring-search
 
-    antigen theme ys
-
     antigen apply
 #}}}
 else #{{{
@@ -121,7 +118,6 @@ fi
 
 # User configuration
 
-  export PATH="/home/werty/pebble-dev/pebble-sdk-4.2-linux64/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/werty/pebble-dev/pebble-sdk-4.2-linux64/pebble-tool"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
