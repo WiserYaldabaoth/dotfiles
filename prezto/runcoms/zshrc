@@ -1,0 +1,91 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Brian Mejorado <bam9523@rit.edu>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh";
+fi
+
+
+# SETUP VI MODE {{{
+bindkey -v;
+
+bindkey -M viins 'jk' vi-cmd-mode;
+bindkey '^P' up-history;
+bindkey '^N' down-history;
+bindkey '^?' backward-delete-char;
+bindkey '^h' backward-delete-char;
+bindkey '^w' backward-kill-word;
+bindkey '^r' history-incremental-search-backward;
+
+# function zle-line-init zle-keymap-select {
+#     VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}";
+#     RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1";
+#     zle reset-prompt;
+# }
+
+# zle -N zle-line-init;
+# zle -N zle-keymap-select;
+export KEYTIMEOUT=10;
+#}}}
+
+# Aliases {{{1
+
+# Simple Aliases {{{2
+alias ls='ls -hF --color=tty';                 # classify files in colour
+alias dir='ls --color=auto --format=vertical';
+alias vdir='ls --color=auto --format=long';
+alias ll='ls -alrt';                           # long list
+alias la='ls -A';                              # all but . and ..
+alias l='ls -CF';                              #
+alias lsd='ls ./.* -alrt |grep "[^^]./\..*$"'; # ls dotfiles
+
+# tmux with 256-color support
+alias tmux="tmux -2";
+
+# git
+alias glog='git log --oneline --decorate --color --graph';
+alias gloga='git log --oneline --decorate --color --graph --all';
+alias glogd='git log --oneline --decorate --color --graph --date-order';
+alias glogda='git log --oneline --decorate --color --graph --all --date-order';
+
+# eclimd
+alias eclimd='~/.eclipse/org.eclipse.platform_4.5.2_155965261_linux_gtk_x86_64/eclimd';
+
+#}}}2
+
+# Suffix Aliases {{{2
+alias -s tex=vim; # may change this to pdflatex later
+alias -s txt=vim;
+alias -s c=vim;
+alias -s java=vim;
+alias -s zshrc=source;
+# alias -s vim=vim # Disables autocd to .vim directory
+#}}}2
+
+#}}}1
+
+# Setopts {{{1
+
+setopt nocdablevars
+
+# }}}1
+
+export EDITOR='vim';
+export VISUAL=$EDITOR;
+export DISABLE_AUTO_TITLE=true;
+
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+[[ -f ~/.zsh_path ]] && source ~/.zsh_path;
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+
+# vim:fen:fdm=marker:ft=zsh
