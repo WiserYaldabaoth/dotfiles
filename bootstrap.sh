@@ -20,24 +20,44 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+# Modified by Brian Alexander Mejorado
 
 cd "$(dirname "${BASH_SOURCE}")";
 
 git pull origin master;
 
 function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-		--exclude "README.md" --exclude "LICENSE-MIT.txt" -avh --no-perms . ~;
-	source ~/.bash_profile;
+    rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
+        --exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude ".gitignore" \
+        -avh --no-perms . ~;
+    source ~/.bash_profile;
+}
+
+function usage() {
+    echo "$0"
+    echo ""
+    echo "Installs dotfiles into the home directory."
+    echo ""
+    echo "Flags:"
+    echo ""
+    echo "  --force  -f   Do not prompt for input."
+    echo "  --help   -h   Show this help message."
+    echo ""
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
-	doIt;
+    doIt;
+elif [ "$1" == "--help" -o "$1" == "-h" -o "$1" != "" ]; then
+    usage;
 else
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
-	echo "";
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt;
-	fi;
+    read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
+    echo "";
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        doIt;
+    fi;
 fi;
+unset gitReady;
 unset doIt;
+unset usage;
+
+# vim:fen:fdm=syntax
